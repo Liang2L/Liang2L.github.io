@@ -396,7 +396,20 @@
 <h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><p>1、导出数据和表结构：<br>mysqldump -u用户名 -p密码 数据库名 &gt; 数据库名.sql<br>mysqldump -uroot -p dbname &gt; dbname .sql<br>敲回车后会提示输入密码<br>2、只导出表结构<br>mysqldump -u用户名 -p密码 -d 数据库名 &gt; 数据库名.sql<br>mysqldump -uroot -p -d dbname &gt; dbname .sql</p>
 <h2 id="加本地连接权限"><a href="#加本地连接权限" class="headerlink" title="加本地连接权限"></a>加本地连接权限</h2><p>grant all privileges on <em>.</em> to rooact@’172.31.131.31’ identified by ‘Yhsj_idc@2019’;</p>
 <p>flush privileges;</p>
-<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1>
+<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="修改目录属主"><a href="#修改目录属主" class="headerlink" title="修改目录属主"></a>修改目录属主</h3><p> chown -R rzxsystemuser:rzxsystemuser tomcat</p>
+<h3 id="删除某目录下两天前的-log文件"><a href="#删除某目录下两天前的-log文件" class="headerlink" title="删除某目录下两天前的.log文件"></a>删除某目录下两天前的.log文件</h3><p>find $ROOT_DIR/* -type f -name *.log -mtime +2 -exec rm -rf {} ;</p>
+<h3 id="建立软连接"><a href="#建立软连接" class="headerlink" title="建立软连接"></a>建立软连接</h3><p>ln -s /usr/local/tomcat-9.0.17/ tomcat</p>
+<p>当前目录下，建立一个tomcat目录，软连接指向/usr/local/tomcat-9.0.17/</p>
+<h3 id="文件内容替换"><a href="#文件内容替换" class="headerlink" title="文件内容替换"></a>文件内容替换</h3><h4 id="整行替换"><a href="#整行替换" class="headerlink" title="整行替换"></a>整行替换</h4><p>sed -i “/database.password=/c\database.password=${DB_PASSWD}”  /usr/local/tomcat-9.0.17/webapps/ucenter_illegal/WEB-INF/classes/globalMessages_zh_CN.properties</p>
+<p>将database.password= 这一行替换为 database.password=${DB_PASSWD}</p>
+<h4 id="指定内容替换"><a href="#指定内容替换" class="headerlink" title="指定内容替换"></a>指定内容替换</h4><p>sed -i “s/127.0.0.1:48889/${DB_IP}:48889/g” /usr/local/tomcat-9.0.17/webapps/ucenter_illegal/WEB-INF/classes/config/spring/applicationContext-dubbo.xml</p>
+<p>将文件内容中 127.0.0.1:48889 替换为 ${DB_IP}:48889</p>
+<h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><h3 id="当前所在目录"><a href="#当前所在目录" class="headerlink" title="当前所在目录"></a>当前所在目录</h3><p>currentdir=$(cd “$(dirname “$0”)”; pwd) </p>
+<h3 id="当前时间和日期"><a href="#当前时间和日期" class="headerlink" title="当前时间和日期"></a>当前时间和日期</h3><p>baktime=<code>date &quot;+%Y-%m-%d-%H-%M-%S&quot;</code>  </p>
+<p>clear_dir=<code>date +&quot;%Y-%m-%d&quot; -d&#39;-1 day&#39;</code> </p>
+<p>remove_date=<code>date &quot;+%Y-%m-%d&quot;</code></p>
+<h3 id="获取-app进程号"><a href="#获取-app进程号" class="headerlink" title="获取$app进程号"></a>获取$app进程号</h3><p>ps waux| grep $app| grep -v grep | awk ‘{ print $2 }’  </p>
+
           
         
       
