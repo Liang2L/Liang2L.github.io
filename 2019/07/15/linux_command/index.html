@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Linuxsoftwarekafkakafka启动bin/kafka-server-start.sh config/server.properties kafka生产者启动bin/kafka-console-producer.sh –broker-list localhost:20882 –topic test kafka消费者启动bin/kafka-console-consumer.sh –zo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-15T08:19:20.000Z">
+<meta property="og:updated_time" content="2019-07-16T02:54:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令">
 <meta name="twitter:description" content="Linuxsoftwarekafkakafka启动bin/kafka-server-start.sh config/server.properties kafka生产者启动bin/kafka-console-producer.sh –broker-list localhost:20882 –topic test kafka消费者启动bin/kafka-console-consumer.sh –zo">
@@ -393,7 +393,7 @@
 <h3 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h3><p>nohup command &gt; myout.file 2&gt;&amp;1 &amp;</p>
 <h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p>1、首先建空数据库<br>mysql&gt;create database dbname ;<br>2、导入数据库<br>方法一：<br>（1）选择数据库<br>mysql&gt;use dbname ;<br>（2）设置数据库编码<br>mysql&gt;set names utf8;<br>（3）导入数据（注意sql文件的路径）<br>mysql&gt;source /home/xxxx/dbname .sql;<br>方法二：<br>mysql -u用户名 -p密码 数据库名 &lt; 数据库名.sql</p>
 <h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><p>1、导出数据和表结构：<br>mysqldump -u用户名 -p密码 数据库名 &gt; 数据库名.sql<br>mysqldump -uroot -p dbname &gt; dbname .sql<br>敲回车后会提示输入密码<br>2、只导出表结构<br>mysqldump -u用户名 -p密码 -d 数据库名 &gt; 数据库名.sql<br>mysqldump -uroot -p -d dbname &gt; dbname .sql</p>
-<h2 id="加本地连接权限"><a href="#加本地连接权限" class="headerlink" title="加本地连接权限"></a>加本地连接权限</h2><p>grant all privileges on <em>.</em> to rooact@’172.31.131.31’ identified by ‘Yhsj_idc@2019’;</p>
+<h2 id="加本地连接权限"><a href="#加本地连接权限" class="headerlink" title="加本地连接权限"></a>加本地连接权限</h2><p>grant all privileges on *. * to rooact@’172.31.131.31’ identified by ‘Yhsj_idc@2019’;</p>
 <p>flush privileges;</p>
 <h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="修改目录属主"><a href="#修改目录属主" class="headerlink" title="修改目录属主"></a>修改目录属主</h3><p> chown -R rzxsystemuser:rzxsystemuser tomcat</p>
 <h3 id="删除某目录下两天前的-log文件"><a href="#删除某目录下两天前的-log文件" class="headerlink" title="删除某目录下两天前的.log文件"></a>删除某目录下两天前的.log文件</h3><p>find $ROOT_DIR/* -type f -name *.log -mtime +2 -exec rm -rf {} ;</p>
@@ -441,6 +441,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/16/XmlToObject/" rel="prev" title="Xml转Object（xstream及自定义解析）">
+                Xml转Object（xstream及自定义解析） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -517,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
