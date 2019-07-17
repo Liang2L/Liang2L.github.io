@@ -1252,7 +1252,13 @@
 <h3 id="当前时间和日期"><a href="#当前时间和日期" class="headerlink" title="当前时间和日期"></a>当前时间和日期</h3><p>baktime=<code>date &quot;+%Y-%m-%d-%H-%M-%S&quot;</code>  </p>
 <p>clear_dir=<code>date +&quot;%Y-%m-%d&quot; -d&#39;-1 day&#39;</code> </p>
 <p>remove_date=<code>date &quot;+%Y-%m-%d&quot;</code></p>
-<h3 id="获取-app进程号"><a href="#获取-app进程号" class="headerlink" title="获取$app进程号"></a>获取$app进程号</h3><p>ps waux| grep $app| grep -v grep | awk ‘{ print $2 }’  </p>
+<h3 id="获取-app进程号"><a href="#获取-app进程号" class="headerlink" title="获取$app进程号"></a>获取$app进程号</h3><p>ps waux| grep $app| grep -v grep | awk ‘{ print $2 }’ </p>
+<h3 id="获取本机IP"><a href="#获取本机IP" class="headerlink" title="获取本机IP"></a>获取本机IP</h3><p>current_ip=<code>/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk &#39;{print $2}&#39;|tr -d &quot;addr:&quot;</code></p>
+<h3 id="从配置文件中获取相关信息"><a href="#从配置文件中获取相关信息" class="headerlink" title="从配置文件中获取相关信息"></a>从配置文件中获取相关信息</h3><p>DB_IP=<code>cat ${SERVER_PATH}/conf/baseClass.conf | grep &quot;^db_ip=&quot; | cut -d &#39;=&#39; -f2 | head -1</code><br>DB_PASSWD=<code>cat ${SERVER_PATH}/conf/baseClass.conf  | grep &quot;^db_passwd=&quot; | cut -d &#39;=&#39; -f2 | head -1</code></p>
+<h3 id="文件格式转换"><a href="#文件格式转换" class="headerlink" title="文件格式转换"></a>文件格式转换</h3><p>将从window上传的文件转为unix文件格式</p>
+<p>dos2unix “/usr/local/tomcat/webapps/act-idc-web/WEB-INF/classes/config.properties”  &gt; /dev/null 2&gt;&amp;1</p>
+<h3 id="定时清理指定目录下文件"><a href="#定时清理指定目录下文件" class="headerlink" title="定时清理指定目录下文件"></a>定时清理指定目录下文件</h3><p>查找并清理不需要的文件__查找系统时间为30天以前的全部文件</p>
+<p>find $log_path -mtime +30 -name “*” -exec rm -rf {} ;</p>
 
           
         
