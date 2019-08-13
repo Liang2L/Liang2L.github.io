@@ -7,8 +7,7 @@ categories:
 ---
 
     背景：
-    将Hexo环境源码上传至github后，在新电脑（什么环境都未安装）上如何将Hexo环境复刻下来，重新开始写博客
-    上传
+    将Hexo环境源码上传至github后，在新电脑（什么环境都未安装）上如何将Hexo环境复刻下来，重新开始写博客上传
 
 ## 一、组件安装
 1、git
@@ -42,7 +41,7 @@ git clone -b hexo https://github.com/Liang2L/liang2l.github.io.git
 ```
 npm install
 ```
-==备注==：在npm安装依赖时，可能会报错
+== 备注 ==：在npm安装依赖时，可能会报错
 
 ```
 npm: relocation error: npm: symbol SSL_set_cert_cb, version libssl.so.10 not defined in file libssl.so.10 with link time reference
@@ -88,3 +87,7 @@ git push origin hexo
 hexo g
 hexo d
 ```
+
+参考文档：
+安装：https://blog.csdn.net/sinat_37781304/article/details/82729029
+迁移：https://blog.csdn.net/White_Idiot/article/details/80685990
